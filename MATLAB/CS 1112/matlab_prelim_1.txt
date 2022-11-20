@@ -1,0 +1,161 @@
+Q1.1)
+3
+[9,8,9]
+4
+[9,8,9,10]
+5
+[9,8,9,11,11]
+
+
+Q1.2)
+x is 3
+z is 3
+x is 2
+y is 8
+
+
+Q2)
+if a ~= b
+	x=1;
+elseif a == b + c
+	x=1;
+elseif c==b
+	if a==b
+		x=2;
+	end
+else
+	x=3;
+end
+
+
+Q3)
+cont = true;
+largestVal=0;
+biggest=0
+i=1;
+while (i<=len && cont)
+	i=i+1;
+	if (big(v(i)) > biggest)
+		biggest=big(v(i));
+		largestVal=v(i);
+	end
+	if (big(v(i)) == 9)
+		cont=false;
+	end
+end
+fprintf('%d', largestVal)
+
+
+Q4.1)
+divisors=[];
+for dominic= 1:m
+	if (rem(m,dominic)==0)
+		divisors=[divisors, dominic];
+	end
+end
+num_divisors=length(divisors);
+end
+
+
+Q4.2)
+[mDivsLen,mDivs]=findDivisors(m)
+[nDivsLen,nDivs]=findDivisors(n)
+d_slow=1;
+for mx = 1:mDivsLen
+	for ny= 1:nDivsLen
+	if mDivs(mx) == nDivs(ny)
+		if mDivs(mx)>d_slow
+		d_slow=mDivs(mx);
+		end
+	end
+end
+
+
+Q4.3)
+if ~(m>=n)
+	temp=n;
+	n=m;
+	m=temp;
+end
+d_fast=-1;
+while (d_fast==-1)
+	
+	r=rem(m,n)
+	if r=0
+		d_fast=n;
+	else
+		m=n;
+		n=r;
+	end
+end
+
+
+Q5)
+close all
+figure
+hold on
+red = [1 0 0];
+blue =[0 0 1];
+x_start = 0;
+y_start = 0;
+x_end = 8;
+y_end = 5;
+n = 6;
+s = (x_end - x_start)/5;
+
+x=x_start;
+y=y_start;
+L=(y_end-y_start)/n  %HEIGHT, Y
+W=rand()*s           %WIDTH, X
+
+% INTERPOLATION
+d= sqrt((x-x_start)^2 + (y-y_start)^2);
+maxd=sqrt((x_end-x_start)^2 + (y_end-y_start)^2);
+c= red*(d/maxd) + blue*(1-(d/maxd));
+
+for row = 1:n
+	while(x+W<x_end)
+		drawRect(x,y,L,W,c)
+		W=rand()*s
+		x=x+W;
+
+		d= sqrt((x-x_start)^2 + (y-y_start)^2);
+		maxd=sqrt((x_end-x_start)^2 + (y_end-y_start)^2);
+		c= red*(d/maxd) + blue*(1-(d/maxd));
+	end
+	y=y+L;
+end
+hold off
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,7 @@
+a=1
+b=5
+
+y=exp(x^2)
+y
+epsilon=10^-9
+N=sqrt()
