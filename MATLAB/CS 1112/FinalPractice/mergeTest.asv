@@ -1,0 +1,12 @@
+
+bigness=30;
+forSort=datum(bigness);
+for n =1:bigness
+forSort(n)= datum(rand(),n,'val',sprintf('get merged %iHead',n));
+disp(datum(rand(),n,'val',sprintf('get merged %iHead',n)))
+end
+
+sorted=mergeSort(forSort,'value',true);
+
+for n =1:bigness
+disp(s)

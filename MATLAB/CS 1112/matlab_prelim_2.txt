@@ -1,0 +1,129 @@
+Q1.2)
+
+[0 1 1 1;
+ 2 0 1 1;
+ 2 2 0 1;
+ 2 2 2 0;
+
+
+
+Q2)
+
+A= zeros(n,n)
+
+i=1
+startCol=2;
+for row = 1:n
+	for col = 1:n
+		if col>=startCol
+			A(row,col)=i;
+			i=i+1;
+		end
+	end
+	startCol=startCol+1;
+end
+	
+	
+Q3.2)
+
+function count = count_noShare(st,query)
+
+q=length(query);
+lastfound=0;
+
+count=0;
+
+if q > length(st)
+	count=0;
+else
+	for n=q:length(st)
+		if strcmp((n-(q-1):n,query)
+			if (lastfound+q)<=n
+				count=count+1;
+				lastfound=n
+			end
+		end
+	end
+end
+
+end
+
+
+Q4)
+
+function names = nameSearch(seating, ch)
+
+names = {};
+
+
+for x = seating(1:end)
+	repeats=0;
+	for c = x(1:end)
+		if c == ch
+			repeats=repeats+1;
+		end
+		if repeats == 1
+			names = {names x}
+		end
+	end
+end
+
+
+Q5)
+
+function new = modifyImg(orig, key, nb)
+
+new = orig;
+
+[nrows, ncols] = size(orig);
+
+row = 1;
+col = 1;
+
+bcols=zeros(ncols)
+for 1:nb
+	bcols(randi(ncols))=1;
+end
+
+while row<=nrows
+	while col<=ncols
+		if bcols(col) == 1
+			new(row,col,1)=uint8(255)
+			new(row,col,2)=uint8(255)
+			new(row,col,3)=uint8(255)
+
+		elseif key(row,col) == 1
+			avgr=orig(row, col, 1)
+			avgg=orig(row, col, 2)
+			avgb=orig(row, col, 3)
+			div=1;
+			if(row>1)
+				avgr=avgr+orig(row-1, col, 1)
+				avgg=avgg+orig(row-1, col, 2)
+				avgb=avgb+orig(row-1, col, 3)
+				div=div+1
+			end
+			if (row<nrows)
+				avgr=avgr+orig(row+1, col, 1)
+				avgg=avgg+orig(row+1, col, 2)
+				avgb=avgb+orig(row+1, col, 3)
+				div=div+1
+			end
+			avgr=avgr/div;
+			avgg=avgg/div;
+			avgb=avgb/div;
+			new(row,col,1)=uint8(avgr)
+			new(row,col,2)=uint8(avgg)
+			new(row,col,3)=uint8(avgb)
+		end
+		
+			
+		col=col+1;
+	end
+	row=row+1;
+end
+
+
+
+
+

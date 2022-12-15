@@ -1,0 +1,42 @@
+function sorted = mergeSort(datumArray, sortingBy, small2big)
+    if length(datumArray)==1
+        sorted=datumArray;
+%     elseif length(datumArray)==2
+%         if strcmp(sortingBy,'hash')
+%             LVar=datumArray(1).hashCode;
+%             RVar=datumArray(2).hashCode;
+%         elseif strcmp(sortingBy,'value')
+%             LVar=datumArray(1).numValue;
+%             RVar=datumArray(2).numValue;
+%         elseif strcmp(sortingBy,'index')
+%             LVar=datumArray(1).index;
+%             RVar=datumArray(2).index;
+%         end
+%         if (LVar<=RVar) == small2big
+%             sorted = [datumArray(1) datumArray(2)];
+%         else
+%             sorted = [datumArray(2) datumArray(1)];
+%         end
+    else
+       split=ceil(length(datumArray)/2);
+          left=mergeSort(datumArray(1:split),sortingBy, small2big);
+          right=mergeSort(datumArray(split+1:end),sortingBy, small2big);
+l=1;
+r=1;
+out=[];
+
+while (l< length(left) && r< length(right))
+    if left(l) < right(r)
+        out=[out left(l)];
+        l=l+1;
+    else
+        out=[out right(r)];
+        r=r+1;
+    end
+end
+       if(small2big)
+        sorted=merge(left,right);
+       else
+        sorted=merge(right,left);
+       end
+    end

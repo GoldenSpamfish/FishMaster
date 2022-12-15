@@ -17,10 +17,10 @@ void setup() {
 
 void loop() {
   // read analog inputs and set X-Y position
-  Joystick.X(1023-analogRead(3));
-  Joystick.Y(analogRead(2));
-  Joystick.Z(analogRead(0));
-  Joystick.Zrotate(analogRead(1));
+  Joystick.X(analogRead(1));
+  Joystick.Y(analogRead(0));
+  Joystick.Z(analogRead(2));
+  Joystick.Zrotate(analogRead(3));
 
   // read the digital inputs and set the buttons
   Joystick.button(1, 1-digitalRead(1));

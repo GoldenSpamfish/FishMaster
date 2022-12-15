@@ -1,0 +1,10 @@
+function out = merge(left,right)
+l=0;
+r=0;
+out=[];
+
+while (l< length(left) && r< length(right))
+    if left(l)>right(r)
+        out=[out left(l)];
+    end
+
