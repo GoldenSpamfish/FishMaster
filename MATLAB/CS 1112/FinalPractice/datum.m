@@ -1,6 +1,6 @@
 classdef datum < handle
     % for testing sorts
-    properties
+    pr operties
         index
         numValue
         hashCode
